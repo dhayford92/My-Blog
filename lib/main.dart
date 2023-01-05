@@ -3,6 +3,7 @@ import 'package:myblog/utils/responsiveness.dart';
 
 import 'pages/about.dart';
 import 'pages/allposts.dart';
+import 'pages/contact.dart';
 import 'pages/homepage.dart';
 import 'utils/footer.dart';
 
@@ -37,6 +38,7 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     AllPostsPage(),
     AboutPage(),
+    ContactPage(),
   ];
   @override
   Widget build(BuildContext context) {

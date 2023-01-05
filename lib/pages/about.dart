@@ -32,7 +32,7 @@ class _AboutPageState extends State<AboutPage> {
           ),
           const SizedBox(height: 20),
           SizedBox(
-            height: ResponsivenessControl.isPhone(context) ? 600 : 400,
+            height: ResponsivenessControl.isDesktop(context) ? 400 : 650,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -69,16 +69,31 @@ class _AboutPageState extends State<AboutPage> {
                           otherInfo(context)
                         ],
                       )
-                    : Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          otherInfo(context),
-                          const SizedBox(width: 20),
-                          otherInfo(context),
-                          const SizedBox(width: 20),
-                          otherInfo(context)
-                        ],
-                      ),
+                    : ResponsivenessControl.isDesktop(context)
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              otherInfo(context),
+                              const SizedBox(width: 20),
+                              otherInfo(context),
+                              const SizedBox(width: 20),
+                              otherInfo(context)
+                            ],
+                          )
+                        : Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  otherInfo(context),
+                                  const SizedBox(width: 20),
+                                  otherInfo(context),
+                                ],
+                              ),
+                              const SizedBox(height: 20),
+                              otherInfo(context)
+                            ],
+                          ),
               ],
             ),
           ),
@@ -87,7 +102,7 @@ class _AboutPageState extends State<AboutPage> {
     );
   }
 
-  Column otherInfo(BuildContext context) {
+  otherInfo(BuildContext context) {
     return Column(
       children: [
         Text(
